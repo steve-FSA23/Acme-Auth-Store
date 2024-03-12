@@ -46,13 +46,11 @@ app.post("/api/users/signup", async (req, res, next) => {
                 .send({ error: "Username and password are required" });
         }
 
-        // Create the user
         const newUser = await createUser({
             username,
             password,
         });
 
-        // Return the created user
         res.status(201).send({ id: newUser.id, username: newUser.username });
     } catch (error) {
         next(error);

@@ -65,7 +65,7 @@ const destroyFavorite = async ({ user_id, id }) => {
   `;
     await client.query(SQL, [user_id, id]);
 };
-//  Step 1
+
 const authenticate = async ({ username, password }) => {
     const SQL = `
     SELECT id, password
@@ -85,7 +85,6 @@ const authenticate = async ({ username, password }) => {
     return { token };
 };
 
-//  Step 2
 const findUserWithToken = async (token) => {
     let id;
     try {
